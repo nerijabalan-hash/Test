@@ -27,7 +27,7 @@ import {
   IconSearch,
   tokens,
 } from '../ui';
-import { Section, SlideConfig, SlideType, SectionType, mockLayouts, mockFolders, QuestionConfig, createQuestionConfig } from '../data/mockData';
+import { Section, SlideConfig, SlideType, SectionType, LibrarySelectionMode, mockLayouts, mockFolders, QuestionConfig, createQuestionConfig } from '../data/mockData';
 import hierarchyLibrary from '../data/hierarchy-library-counts.json';
 import { DrawerHeaderWithSubtitle, DrawerIntro, DrawerStatusChips } from './shared/DrawerCopyPattern';
 import { drawerCopySpec } from './shared/drawerCopySpec';
@@ -758,7 +758,7 @@ export function SectionItem({
           libraryMode: 'fixed' as const,
           aiInstructions: undefined,
           selectedSlideIds: editSelectedSlides,
-          selectionMode: editInclusionCriteria ? 'criteria' : 'all',
+          selectionMode: (editInclusionCriteria ? 'criteria' : 'all') as LibrarySelectionMode,
           selectionCriteria: editInclusionCriteria || undefined,
           searchInstructions: undefined,
           limitedFolderIds: undefined,
@@ -769,8 +769,10 @@ export function SectionItem({
           type: 'library' as const,
           aiInstructions: undefined,
           selectedSlideIds: editSelectedSlides,
-          selectionMode: editInclusionCriteria ? 'criteria' : 'all',
+          selectionMode: (editInclusionCriteria ? 'criteria' : 'all') as LibrarySelectionMode,
           selectionCriteria: editInclusionCriteria || undefined,
+          searchInstructions: undefined,
+          limitedFolderIds: undefined,
         };
       }
     });
@@ -1011,7 +1013,6 @@ export function SectionItem({
                   <Switch
                     checked={section.aiExpansion || false}
                     onChange={(checked) => onUpdateAIExpansion?.(checked)}
-                    size="small"
                   />
                 </div>
               )}
