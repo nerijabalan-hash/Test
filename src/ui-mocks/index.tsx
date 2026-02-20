@@ -7,7 +7,7 @@
 
 import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import '../../FrontendPlatform/packages/ui/src/typography/fonts.css';
+import '../assets/fonts.css';
 import {
   IconAiStar as FrontendPlatformIconAiStar,
   IconArrow as FrontendPlatformIconArrow,
@@ -28,7 +28,7 @@ import {
   IconSearch as FrontendPlatformIconSearch,
   IconUpdates as FrontendPlatformIconUpdates,
   IconViewList as FrontendPlatformIconViewList,
-} from '../../FrontendPlatform/packages/ui/build/icons/index.js';
+} from '../icons';
 
 // ============================================================================
 // Layout Components
